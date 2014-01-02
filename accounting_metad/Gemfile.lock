@@ -1,0 +1,10 @@
+GEM
+  remote: http://ruby.taobao.org/
+  specs:
+    librrd (1.0.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  librrd

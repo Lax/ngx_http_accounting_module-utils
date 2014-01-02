@@ -1,0 +1,26 @@
+-# coding: UTF-8
+
+.span9
+  -@store.each do |grid, grid_dir|
+    -grid_dir.each do |host, host_dir|
+      -host_dir.each do |channel, channel_dir|
+        .span4{:id=> [:target, grid, host, channel]}
+          %a.thumbnail
+            %h4
+              = channel
+            %img{:src => "/traffic/graph/#{grid}/#{host}/#{channel}?period=#{@period}&width=240&height=160"}
+      .clear-fix.visible-xs
+
+.span2#sidebar{:role => "navigation"}
+  .list-group
+    -@store.each do |grid, grid_dir|
+      .list-group-item
+        = grid
+      -grid_dir.each do |host, host_dir|
+        .list-group-item
+          = host
+        -host_dir.each do |channel, chanel_dir|
+          .list-group-item
+            %a{:href => "#target_#{grid}_#{host}_#{channel}"}
+              = channel
+

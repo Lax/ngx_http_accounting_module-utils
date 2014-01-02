@@ -1,0 +1,44 @@
+-# coding: UTF-8
+!!!
+%html(xml:lang='en' lang='en' xmlns='http://www.w3.org/1999/xhtml')
+  %head
+    %meta(content='text/html;charset=UTF-8' http-equiv='content-type')
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %link{:href => "/css/bootstrap.min.css", :rel =>"stylesheet", :type => "text/css", :media => "screen" }
+    %link{:href => "/css/bootstrap-responsive.min.css", :rel =>"stylesheet", :type => "text/css", :media => "screen" }
+    %link{:href => "/css/jquery-ui.css", :rel =>"stylesheet", :type => "text/css", :media => "screen" }
+
+    %script{:type => "text/javascript", :src  => "/js/jquery-1.9.1.min.js"}
+    %script{:type => "text/javascript", :src  => "/js/bootstrap.min.js"}
+    %script{:type => "text/javascript", :src  => "/js/jquery-ui.js"}
+
+    <!--[if lt IE 9]>
+    %script{:type => 'text/javascript', :src => "http://html5shim.googlecode.com/svn/trunk/html5.js"}
+    <![endif]-->
+
+    %title
+      Traffic
+  %body
+    .navbar-wrapper
+      .container
+        .navbar.navbar-inverse1.navbar-fixed-top1.navbar-static-top
+          .navbar-inner
+            %a.brand{:href => '/'}
+              Traffic
+    
+            %ul.nav
+              %li
+                %a{:href => '/'} 首页
+              %li.divider-vertical
+              %li.dropdown
+                %a.dropdown-togle{:'data-toggle' => :dropdown}
+                  流量
+                  %b.caret
+                %ul.dropdown-menu
+                  - ['1H', '6H', '1D', '1W', '1M', '1Y'].each do |period|
+                    %li
+                      %a{:href => "/traffic?period=#{period}"}
+                        = period
+
+    .container
+      = yield
