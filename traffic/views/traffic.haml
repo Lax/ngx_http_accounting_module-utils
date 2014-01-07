@@ -4,12 +4,16 @@
   -@store.each do |grid, grid_dir|
     -grid_dir.each do |host, host_dir|
       -host_dir.each do |channel, channel_dir|
-        .span4{:id=> [:target, grid, host, channel]}
-          %a.thumbnail
-            %h4
-              = channel
-            %img{:src => "/traffic/graph/#{grid}/#{host}/#{channel}?period=#{@period}&width=240&height=160"}
-      .clear-fix.visible-xs
+        .row
+          %h4{:id=> [:target, grid, host, channel]}
+            = channel
+          .span4
+            %a.thumbnail
+              %img{:src => "/traffic/graph/#{grid}/#{host}/#{channel}/default?period=#{@period}&width=240&height=160"}
+          .span4
+            %a.thumbnail
+              %img{:src => "/traffic/graph/#{grid}/#{host}/#{channel}/errors?period=#{@period}&width=240&height=160"}
+        .clear-fix.visible-xs
 
 .span2#sidebar{:role => "navigation"}
   .list-group
