@@ -148,7 +148,7 @@ class AppController < Sinatra::Base
       content_type 'text/plain'
       cmd
     else
-      content_type 'image/gif'
+      content_type 'image/png'
 
       `#{cmd}`
     end
