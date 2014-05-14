@@ -46,7 +46,8 @@ end
 
 if __FILE__ == $0
     [0, 104, 200, 201, "fmn026_035", "status"].each do |accounting_id|
-        RRDStoreAdaptor.append("test@__SUMMARY__@#{accounting_id}@requests", 900)
-        RRDStoreAdaptor.append("test@__SUMMARY__@#{accounting_id}@bytes_out", 1200)
+        RRDStoreAdaptor.append("test@__SUMMARY__@#{accounting_id}@requests", 900 + rand(100))
+        RRDStoreAdaptor.append("test@__SUMMARY__@#{accounting_id}@bytes_in", 1200 + rand(300))
+        RRDStoreAdaptor.append("test@__SUMMARY__@#{accounting_id}@bytes_out", 93000 + rand(3000))
     end
 end

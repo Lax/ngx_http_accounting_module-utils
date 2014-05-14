@@ -51,7 +51,7 @@ class AccountingMetad
                 end
                 accounting_id = ChannelInfo.getNameByID(packetinfo[:accounting_id])
 
-                [:"502", :"500", :"504", :"499", :"408", :"404", :"403", :"400", :requests, :bytes_out].each do |vvv|
+                [:"502", :"500", :"504", :"499", :"408", :"404", :"403", :"400", :requests, :bytes_in, :bytes_out].each do |vvv|
                     if packetinfo[vvv].to_i > 0
                         increaser = {
                             "#{server_groupname}@#{remoteip}@__SUMMARY__@#{vvv}" => packetinfo[vvv], 
