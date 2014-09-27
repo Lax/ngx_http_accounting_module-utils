@@ -1,0 +1,6 @@
+#! /bin/sh
+
+cd `dirname $0`
+screen -r traffic || RRD_FOLDER=./var/rrds \
+     screen -S traffic \
+      rackup -p 29124 -E production -s puma

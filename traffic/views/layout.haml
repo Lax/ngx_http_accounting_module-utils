@@ -30,15 +30,10 @@
               %li
                 %a{:href => '/'} 首页
               %li.divider-vertical
-              %li.dropdown
-                %a.dropdown-togle{:'data-toggle' => :dropdown}
-                  流量
-                  %b.caret
-                %ul.dropdown-menu
-                  - ['1H', '6H', '1D', '1W', '1M', '1Y'].each do |period|
-                    %li
-                      %a{:href => "/traffic?period=#{period}"}
-                        = period
+              - ['1H', '6H', '1D', '1W', '1M', '1Y'].each do |period|
+                %li
+                  %a{:href => "/traffic?period=#{period}"}
+                    = period
 
     .container
       = yield
